@@ -5,6 +5,7 @@ chrome.runtime.onInstalled.addListener(() => {
 
 // URLS to Watch
 const watchedURLs = [
+  "https://mail.google.com/*",
   "https://mail.google.com/chat",
   "https://mail.google.com/mail/u/0/#inbox"
 ];
