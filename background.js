@@ -16,7 +16,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (tab.url.includes(watchedURLs[i])) {
       chrome.notifications.getAll((items) => {
         console.log(typeof items);
-        if (items) {
+        console.log(Object.getPrototypeOf(items))
+        Object.getPrototypeOf(items)
+        console.log(items.toString())
+        /*if (items) {
           console.log("Items:")
           console.log(items)
           console.log(typeof items);
@@ -24,7 +27,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             console.log("Key:" + key)
             console.log(typeof key);
           }
-        }
+        }*/
       });
     }
   }
