@@ -5,6 +5,9 @@ console.log("------   DOM      -----------------------------------------------")
 console.log("-----------------------------------------------------------------")
 console.log("-----------------------------------------------------------------")
 var elements = document.getElementsByClassName("njhDLd");
-console.log(elements)
+var spans = document.querySelectorAll('span.njhDLd');
+spans.forEach(function (span) {
+    console.log(span.innerText)
+})
 console.log("-----------------------------------------------------------------")
 console.log("-----------------------------------------------------------------")
