@@ -8,50 +8,19 @@ const watchedURLs = [
   "https://mail.google.com",
 ];
 
-function setNotificationCallback(callback) {
-
-  const OldNotify = window.Notification;
-  const newNotify = (title, opt) => {
-    callback(title, opt);
-    return new OldNotify(title, opt);
-  };
-  newNotify.requestPermission = OldNotify.requestPermission.bind(OldNotify);
-  Object.defineProperty(newNotify, 'permission', {
-    get: () => {
-      return OldNotify.permission;
-    }
-  });
-
-  window.Notification = newNotify;
-}
-
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   // Check the Watched URLs
   for (let i = 0; i < watchedURLs.length; i++) {
     if (tab.url.includes(watchedURLs[i])) {
-      chrome.notifications.getAll(
-        (data => { console.log(data); console.log("Hello World!") }),
-      )
 
-      /*console.log("-------------------------------")
-      console.log("TAB UPDATED")
-      //console.log(changeInfo.TabStatus)
-      //console.log(changeInfo.title)
-      //console.log(changeInfo.url)
-      console.log(tab.status)
-      console.log(tab.title)
-      console.log(tab.url)
-      console.log("Consider Muting this tab: " + tab.url)
-      chrome.scripting.executeScript({
-        target: { tabId: tabId },
-        files: ["./foreground.js"]
-      })
-        .then(() => {
-          console.log("INJECTED THE FOREGROUND SCRIPT.");
-        })
-        .catch(err => console.log(err));
-      console.log("-------------------------------")*/
+      chrome.notifications.getAll(
+        (data => {
+          console.log("Logging Notifications:")
+          console.log(data)
+        }
+        )
+      )
     }
   }
 
