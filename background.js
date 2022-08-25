@@ -9,43 +9,23 @@ const watchedURLs = [
 ];
 
 
-function logNotifications(all) {
-  for (const id in all) {
-    console.log(`Title: ${all[id].title}`);
-  }
-}
 
-chrome.notifications.getAll().then(logNotifications);
-
-
-/*
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   // Check the Watched URLs
   for (let i = 0; i < watchedURLs.length; i++) {
     if (tab.url.includes(watchedURLs[i])) {
-      chrome.notifications.getAll((data) => {
-        const ids = Object.keys(data);
-        console.log("Logging Notifications:")
-        console.log(data)
-        console.log(ids)
-      })
+      chrome.notifications.getAll((items) => {
+        if (items) {
+          console.log(items)
+          for (let key in items) {
+            console.log(key);
+          }
+        }
+      });
     }
-  }*/
+  }
+})
 
-
-
-/*if (changeInfo.status === 'complete' && /^http/.test(tab.url)) {
-  console.log("yo!")
-  chrome.scripting.executeScript({
-    target: { tabId: tabId },
-    files: ["./foreground.js"]
-  })
-    .then(() => {
-      console.log("INJECTED THE FOREGROUND SCRIPT.");
-    })
-    .catch(err => console.log(err));
-}*/
-//});
 
 
 function loadSpammers() {
