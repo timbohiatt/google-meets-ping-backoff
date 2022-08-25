@@ -4,7 +4,7 @@ console.log("-----------------------------------------------------------------")
 console.log("------   DOM      -----------------------------------------------")
 console.log("-----------------------------------------------------------------")
 console.log("-----------------------------------------------------------------")
-console.log(document)
+//console.log(document)
 /*var spans = document.querySelectorAll('span.njhDLd');
 spans.forEach(function (span) {
     console.log(span.innerText)

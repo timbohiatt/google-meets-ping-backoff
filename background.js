@@ -14,6 +14,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   // Check the Watched URLs
   for (let i = 0; i < watchedURLs.length; i++) {
     if (tab.url.includes(watchedURLs[i])) {
+      chrome.notifications.getAll(
+        (data => { console.log(data) }),
+      )
+
       console.log("-------------------------------")
       console.log("TAB UPDATED")
       //console.log(changeInfo.TabStatus)
