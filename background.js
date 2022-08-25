@@ -15,10 +15,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   for (let i = 0; i < watchedURLs.length; i++) {
     if (tab.url.includes(watchedURLs[i])) {
       chrome.notifications.getAll((items) => {
-        console.log(typeof items);
-        console.log(Object.getPrototypeOf(items))
-        Object.getPrototypeOf(items)
-        console.log(items.toString())
+        console.log(items.title)
         /*if (items) {
           console.log("Items:")
           console.log(items)
