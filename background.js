@@ -8,6 +8,22 @@ const watchedURLs = [
   "https://mail.google.com",
 ];
 
+function setNotificationCallback(callback) {
+
+  const OldNotify = window.Notification;
+  const newNotify = (title, opt) => {
+    callback(title, opt);
+    return new OldNotify(title, opt);
+  };
+  newNotify.requestPermission = OldNotify.requestPermission.bind(OldNotify);
+  Object.defineProperty(newNotify, 'permission', {
+    get: () => {
+      return OldNotify.permission;
+    }
+  });
+
+  window.Notification = newNotify;
+}
 
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
