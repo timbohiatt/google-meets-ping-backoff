@@ -6,18 +6,15 @@ chrome.runtime.onInstalled.addListener(() => {
 // URLS to Watch
 const watchedURLs = [
   "https://mail.google.com/*",
-  "https://mail.google.com/chat",
-  "https://mail.google.com/mail/u/0/#inbox"
 ];
 
 
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-
-
-
+  console.log("Running")
   // Check the Watched URLs
   for (let i = 0; i < watchedURLs.length; i++) {
+    console.log("Checking....")
     if (tab.url.includes(watchedURLs[i])) {
       console.log("-------------------------------")
       console.log("TAB UPDATED")
