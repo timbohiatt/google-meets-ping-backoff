@@ -15,7 +15,7 @@ function logNotifications(all) {
   }
 }
 
-browser.notifications.getAll().then(logNotifications);
+chrome.notifications.getAll().then(logNotifications);
 
 
 /*
