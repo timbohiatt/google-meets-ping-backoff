@@ -16,9 +16,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (tab.url.includes(watchedURLs[i])) {
       chrome.notifications.getAll((items) => {
         if (items) {
-          console.log(items)
+          console.log("Items:" + items)
           for (let key in items) {
-            console.log(key);
+            console.log("Key:" + key)
+
           }
         }
       });
