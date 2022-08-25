@@ -9,7 +9,7 @@ const watchedURLs = [
 ];
 
 
-function logNotifications(data) {
+var logNotifications = function (data) {
   const ids = Object.keys(data);
   console.log("Logging Notifications:")
   console.log(data)
