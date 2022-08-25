@@ -9,18 +9,18 @@ const watchedURLs = [
 ];
 
 
+function logNotifications(data) {
+  const ids = Object.keys(data);
+  console.log("Logging Notifications:")
+  console.log(data)
+  console.log(ids)
+}
+
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   // Check the Watched URLs
   for (let i = 0; i < watchedURLs.length; i++) {
     if (tab.url.includes(watchedURLs[i])) {
-
-      chrome.notifications.getAll(
-        (data => {
-          console.log("Logging Notifications:")
-          console.log(data)
-        }
-        )
-      )
+      chrome.notifications.getAll().then(logNotifications)
     }
   }
 
