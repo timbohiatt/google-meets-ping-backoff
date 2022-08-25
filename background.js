@@ -14,18 +14,18 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   // Check the Watched URLs
   for (let i = 0; i < watchedURLs.length; i++) {
     if (tab.url.includes(watchedURLs[i])) {
-      chrome.notifications.getAll((items) => {
-        console.log(items.title)
-        /*if (items) {
-          console.log("Items:")
-          console.log(items)
-          console.log(typeof items);
-          for (let key in items) {
-            console.log("Key:" + key)
-            console.log(typeof key);
-          }
-        }*/
-      });
+      var hey = chrome.notifications.getAll((items) => { return items })
+      console.log(hey)
+      /*if (items) {
+        console.log("Items:")
+        console.log(items)
+        console.log(typeof items);
+        for (let key in items) {
+          console.log("Key:" + key)
+          console.log(typeof key);
+        }
+      }*/
+
     }
   }
 })
