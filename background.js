@@ -31,10 +31,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   for (let i = 0; i < watchedURLs.length; i++) {
     if (tab.url.includes(watchedURLs[i])) {
       chrome.notifications.getAll(
-        (data => { console.log(data) }),
+        (data => { console.log(data); console.log("Hello World!") }),
       )
 
-      console.log("-------------------------------")
+      /*console.log("-------------------------------")
       console.log("TAB UPDATED")
       //console.log(changeInfo.TabStatus)
       //console.log(changeInfo.title)
@@ -51,7 +51,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
           console.log("INJECTED THE FOREGROUND SCRIPT.");
         })
         .catch(err => console.log(err));
-      console.log("-------------------------------")
+      console.log("-------------------------------")*/
     }
   }
 
