@@ -4,10 +4,10 @@ console.log("-----------------------------------------------------------------")
 console.log("------   DOM      -----------------------------------------------")
 console.log("-----------------------------------------------------------------")
 console.log("-----------------------------------------------------------------")
-var elements = document.getElementsByClassName("njhDLd");
-var spans = document.querySelectorAll('span.njhDLd');
+console.log(document)
+/*var spans = document.querySelectorAll('span.njhDLd');
 spans.forEach(function (span) {
     console.log(span.innerText)
-})
+})*/
 console.log("-----------------------------------------------------------------")
 console.log("-----------------------------------------------------------------")
