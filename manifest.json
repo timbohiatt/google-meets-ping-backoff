@@ -15,6 +15,9 @@
     "notifications",
     "https://mail.google.com/*"
   ],
+  "host_permissions": [
+    "https://mail.google.com/*"
+  ],
   "browser_action": {
     "default_popup": "popup.html"
   },
